@@ -1,10 +1,15 @@
 <script setup>
-import { RouterView } from 'vue-router'
+import { post } from '@/utils/request.js';
+import { RouterView } from 'vue-router';
 import router from './router';
 import { ref, onMounted } from 'vue'
 
 const inputArea = ref(null)
+const reqContent = ref(null)
+console.log(post);
+
 function getResult() {
+
   router.push("/getResult")
 }
 
@@ -30,18 +35,20 @@ onMounted(() => {
       <div class="slogan">
         <details>
           <summary>A good mathematical tool should belong to all mankind</summary>
+          This tool will gradually become more powerful with the participation of<br>
+          anyone who is interested in mathematics, and accordingly, the tool will<br>
+          be provided free of charge to anyone, without discrimination based on his<br>
+          skin color, his ethnicity, or his religious beliefs.
         </details>
       </div>
     </div>
     <div class="body">
       <div class="left">
         <div class="tip">Input here:</div>
-        <textarea ref="inputArea" id="input" class="input" rows="30" placeholder="input /h to get help"></textarea>
+        <textarea ref="inputArea" id="input" class="input" rows="30" v-model="reqContent"
+          placeholder="input /h to get help"></textarea>
         <div>
           <button @click="getResult"></button>
-
-
-
         </div>
       </div>
       <div class="right">
@@ -95,7 +102,11 @@ onMounted(() => {
 
     .slogan {
       margin-right: 20px;
-      font-size: 10px;
+      font-size: 15px;
+
+      summary {
+        color: #D2691E;
+      }
     }
   }
 
@@ -107,7 +118,6 @@ onMounted(() => {
       width: 50%;
       margin-left: 10px;
 
-      /* height: 100%; */
       textarea {
         font-size: large;
         width: 100%;
@@ -119,13 +129,9 @@ onMounted(() => {
     }
 
     .right {
-      /* border: 1px solid black; */
       width: 50%;
 
-      /* height: 100%; */
       .result {
-        /* border: 1px solid black; */
-
         margin-left: 10px;
 
         .result-view {
@@ -137,7 +143,7 @@ onMounted(() => {
   }
 
   .tip {
-    margin-left: 10px;
+    font-size: 20px;
   }
 
 
