@@ -2,27 +2,24 @@
 import { post } from '@/utils/request.js';
 import { RouterView } from 'vue-router';
 import router from './router';
-import { ref, onMounted } from 'vue'
+import { ref, onMounted } from 'vue';
 
-const inputArea = ref(null)
-const reqContent = ref(null)
+const inputArea = ref(null);
+const reqContent = ref(null);
 console.log(post);
 
 function getResult() {
-
-  router.push("/getResult")
+  router.push('/getResult');
 }
-
 
 onMounted(() => {
   inputArea.value.addEventListener('keydown', (e) => {
     if (e.shiftKey && e.key === 'Enter') {
       getResult();
     }
-  })
-})
+  });
+});
 console.log('测试提交');
-
 </script>
 
 <template>
@@ -36,10 +33,15 @@ console.log('测试提交');
     <div class="sloganBox">
       <div class="slogan">
         <details>
-          <summary>A good mathematical tool should belong to all mankind</summary>
-          This tool will gradually become more powerful with the participation of<br>
-          anyone who is interested in mathematics, and accordingly, the tool will<br>
-          be provided free of charge to anyone, without discrimination based on his<br>
+          <summary>
+            A good mathematical tool should belong to all mankind
+          </summary>
+          This tool will gradually become more powerful with the participation
+          of<br />
+          anyone who is interested in mathematics, and accordingly, the tool
+          will<br />
+          be provided free of charge to anyone, without discrimination based on
+          his<br />
           skin color, his ethnicity, or his religious beliefs.
         </details>
       </div>
@@ -47,8 +49,14 @@ console.log('测试提交');
     <div class="body">
       <div class="left">
         <div class="tip">Input here:</div>
-        <textarea ref="inputArea" id="input" class="input" rows="30" v-model="reqContent"
-          placeholder="input /h to get help"></textarea>
+        <textarea
+          ref="inputArea"
+          id="input"
+          class="input"
+          rows="30"
+          v-model="reqContent"
+          placeholder="input /h to get help"
+        ></textarea>
         <div>
           <button @click="getResult"></button>
         </div>
@@ -90,7 +98,7 @@ console.log('测试提交');
     .title {
       font-size: 20px;
       font-weight: bolder;
-      color: #D2691E
+      color: #d2691e;
     }
 
     /* .subTitle {
@@ -107,7 +115,7 @@ console.log('测试提交');
       font-size: 15px;
 
       summary {
-        color: #D2691E;
+        color: #d2691e;
       }
     }
   }
@@ -147,7 +155,5 @@ console.log('测试提交');
   .tip {
     font-size: 20px;
   }
-
-
 }
 </style>

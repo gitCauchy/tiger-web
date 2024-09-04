@@ -20,7 +20,7 @@ async function get(url, params) {
 }
 
 async function post(url, data) {
-  const response = null;
+  let response = null;
   try {
     res = await instance({
       method: "post",
